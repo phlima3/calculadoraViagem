@@ -1,0 +1,26 @@
+<div class="container-fluid">
+  <div class="card-header bg-dark text-white">Calculadora gasto gasolina</div>
+  <form  class="mt-4" autocomplete="off" [formGroup]="myForm">
+    <ion-item>
+      <ion-label position="floating">Insira o preço da gasolina</ion-label>
+      <ion-input  type="text" placeholder="R$" name="preco" [(ngModel)]="valorGasolina" (ionChange)="updateWithMask($event)" formControlName="gasolina"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">Insira a distância da viagem</ion-label>
+      <ion-input type="number" placeholder="Km" name="distancia" [(ngModel)]="distanciaViagem" formControlName="distancia" mask="(999) 999-9999" mask-placeholder="_"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">Quanto o carro consome?</ion-label>
+      <ion-input type="number" placeholder="Km/l" name="consumo" [(ngModel)]="consumoCarro" formControlName="consumo"></ion-input>
+    </ion-item>
+    <div class="d-grid gap-2 col-6 mx-auto mt-3 pb-5">
+      <button class="btn btn-dark" type="button" (click)="calcularTotal()">Calcular</button>
+    </div>
+    <div class="card mt-5">
+      <div class="card-body">
+        <h5 class="card-title text-center">O VALOR DA VIAGEM SERÁ DE: {{precoViagem.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'})}} </h5>
+      </div> 
+      <a href="#" class="btn btn-dark" (click)="limpar()">Calcular Novamente</a>
+    </div>
+  </form>
+</div>

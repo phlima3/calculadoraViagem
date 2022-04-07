@@ -1,0 +1,7 @@
+{
+  "name": "calculadoraGasto",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
